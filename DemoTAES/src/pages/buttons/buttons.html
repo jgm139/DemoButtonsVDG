@@ -1,11 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Seleccione el estado</ion-title>
+  </ion-navbar>
+</ion-header>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<ion-content padding>
 
-<button ion-button (click)="presentClick()">Presente</button>
-
-<button ion-button color="secondary" (click)="discussionClick()">Discusión</button>
-
-<button ion-button color="danger" (click)="dangerClick()">Peligro</button>
-
-<ion-item>
-  <ion-label floating>{{message}}</ion-label>
-  <ion-input type="text"></ion-input>
-</ion-item>
+  <ion-navbar>
+      <div class="center">
+        <button ion-button (click)="presentClick()">Presente</button>
+      </div>
+      <div class="center">  
+        <button ion-button color="secondary" (click)="discussionClick()">Discusión</button>
+      </div>
+      <div class="center">  
+        <button ion-button color="danger" (click)="dangerClick()">Peligro</button>
+      </div>
+  </ion-navbar>  
+  <br>
+  <br>
+  <div class="center">
+    <img height="100px" width="100px" src="../../assets/img/help-operator.png">
+  </div>
+  <div class="center">
+    <button ion-button color="light" (click)="helpOperator()">¡Ayuda!</button>
+  </div>  
+</ion-content>
