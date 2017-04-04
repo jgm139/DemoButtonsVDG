@@ -16,7 +16,7 @@ export class ButtonsPage {
 
   presentClick() {
     this.message="Estamos en contacto";
-    this.alertPop("Informa", this.message, "OK");
+    this.alertPop("Informa", this.message, "OK"); 
   }
 
   discussionClick() {
