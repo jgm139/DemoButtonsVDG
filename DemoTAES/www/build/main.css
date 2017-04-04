@@ -1,3 +1,10 @@
+.center {
+  margin: 1rem;
+  padding: 1rem;
+  /* IMPORTANTE */
+  text-align: center;
+}
+
 .ion-ios-add:before {
   content: "\f102";
 }

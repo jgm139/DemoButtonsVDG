@@ -9,9 +9,11 @@ import { NavController } from 'ionic-angular';
 export class ButtonsPage {
 
   public message;
-
+  public inter;
+  public t;
   constructor(public navCtrl: NavController, private alertController: AlertController) {
     this.message="";
+    clearInterval(this.inter);
   }
 
   presentClick() {
@@ -38,7 +40,22 @@ export class ButtonsPage {
                 });
                 alert.present();
   }
-
+  clear(){
+        clearInterval(this.inter);
+  }
+  timeout(){
+        this.clear();
+        setTimeout(function(){
+            document.getElementById("testdiv").innerHTML="Pasaron 2 segundos antes de que vieras esto.";
+        },2000,"JavaScript");
+  }
+  interval(){
+        this.t=1;
+        this.inter=setInterval(function(){
+            this.t++;
+            document.getElementById("testdiv").innerHTML=this.t;
+        },1000,"JavaScript");
+    }
   helpOperator() {
     let alert = this.alertController.create({
                   title: "Asistente telefónico",

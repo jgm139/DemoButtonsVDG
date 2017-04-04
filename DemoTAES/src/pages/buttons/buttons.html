@@ -31,28 +31,9 @@
     <button ion-button color="light" (click)="helpOperator()">¡Ayuda!</button>
   </div>  
 
-  <script>
-    var inter,t;
-    function interval(){
-        t=1;
-        inter=setInterval(function(){
-            document.getElementById("testdiv").innerHTML=t++;
-        },1000,"JavaScript");
-    }
-    function timeout(){
-        clear();
-        setTimeout(function(){
-            document.getElementById("testdiv").innerHTML="Pasaron 2 segundos antes de que vieras esto.";
-        },2000,"JavaScript");
-    }
-    function clear(){
-        clearInterval(inter);
-    }
-  </script>    
-
   <div class="center">
-    <button ion-button (click)="this.interval()">Interval</button>
-    <button ion-button (click)="this.timeout()">Timeout</button>
+    <button ion-button (click)="interval()">Interval</button>
+    <button ion-button (click)="timeout()">Timeout</button>
     <div id="testdiv"></div>
   </div>  
 </ion-content>
