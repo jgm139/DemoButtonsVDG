@@ -31,9 +31,11 @@
     <button ion-button color="light" (click)="helpOperator()">¡Ayuda!</button>
   </div>  
 
-  <div class="center">
+  <!--<div class="center">
     <button ion-button (click)="interval()">Interval</button>
     <button ion-button (click)="timeout()">Timeout</button>
     <div id="testdiv"></div>
-  </div>  
+  </div>-->
+  <button ion-button value="3:00" (click)="startTimer()">Time</button>
+  <div>Time left = <span id="timer"></span></div>
 </ion-content>
