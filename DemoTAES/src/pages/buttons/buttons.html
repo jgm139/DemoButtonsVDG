@@ -13,33 +13,35 @@
 
   <ion-navbar>
       <div class="center">
-        <button ion-button (click)="presentClick()">Presente</button>
-      </div>
-      <div class="center">  
-        <button ion-button color="secondary" (click)="discussionClick()">Discusión</button>
-      </div>
-      <div class="center">  
         <button ion-button color="danger" (click)="dangerClick()">Peligro</button>
       </div>
+      <div class="center">  
+        <button ion-button color="ambar" (click)="discussionClick()">Emergencia</button>
+      </div>
+      <div class="center">  
+        <button ion-button color="secondary" (click)="presentClick()">Cancelar</button>
+      </div>
   </ion-navbar>  
-  <br>
-  <br>
+
   <div class="center">
-    <img height="100px" width="100px" src="../../assets/img/help-operator.png">
+    <ion-chip color="primary">
+      <ion-label color="light"><div>Cuenta atrás = {{min}}:{{sec}}<!--<span id="timer"></span>--></div></ion-label>
+    </ion-chip>
+  </div>  
+  <br>
+
+  <div class="center">
+    <img height="50px" width="50px" src="../../assets/img/help-operator.png">
   </div>
   <div class="center">
     <button ion-button color="light" (click)="helpOperator()">¡Ayuda!</button>
   </div>  
-
-  <!--<div class="center">
-    <button ion-button (click)="interval()">Interval</button>
-    <button ion-button (click)="timeout()">Timeout</button>
-    <div id="testdiv"></div>
-  </div>-->
+  
   
   <input #timer1 type="hidden" value="3:00">
   <input #timer1 type="hidden" value="3:00">
-  <button ion-button id="time" value="" (click)="startTimer(timer1.value)">Time</button>
-  <div>Time left = {{min}}:{{sec}}<!--<span id="timer"></span>--></div>
-  <label id="paco" value=""></label>
+  <!--<button ion-button id="time" value="" (click)="startTimer(timer1.value)">Time</button>-->
+  <!--<div>Cuenta atrás = {{min}}:{{sec}}<span id="timer"></span></div>-->
+  <!--<label id="paco" value=""></label>-->
+
 </ion-content>
