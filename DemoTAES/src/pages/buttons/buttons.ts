@@ -1,22 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {AlertController} from 'ionic-angular';
 import { NavController } from 'ionic-angular';
-
+import { SimpleTimer } from 'ng2-simple-timer';
 @Component({
   selector: 'page-buttons',
   templateUrl: 'buttons.html'
 })
-export class ButtonsPage {
+export class ButtonsPage implements OnInit {
 
   public message;
+  public min;
+  public secs;
+  counter0 = 180;
+	timer0Id: string;
+  sec="00";
   //public inter;
   //public t;
-  constructor(public navCtrl: NavController, private alertController: AlertController) {
+  constructor(public navCtrl: NavController, private alertController: AlertController, private st: SimpleTimer) {
     this.message="";
+    this.min=3;
+    this.secs=0;
     //document.getElementById('timer').innerHTML = 0o3 + ":" + 0o0;
     //this.startTimer();
     //clearInterval(this.inter);
   }
+
+	ngOnInit() {
+		this.st.newTimer('1sec',1);
+		
+	}
 
   presentClick() {
     this.message="Estamos en contacto";
@@ -60,29 +72,50 @@ export class ButtonsPage {
     }*/
 
     checkSecond(sec) {
+      var s=""+sec;
       if (sec < 10 && sec >= 0) {
-        sec = "0" + sec;
+        s = "0" + sec;
       }; // add zero in front of numbers < 10
       if (sec < 0) {
-        sec = "59";
+        s = "59";
       };
-      return sec;
+      return s;
     }
 
-    startTimer() {
-      var presentTime = document.getElementById('timer').innerHTML;
-      var timeArray = presentTime.split(/[:]+/);
-      var m = parseInt(timeArray[0]);
-      var s = this.checkSecond((parseInt(timeArray[1]) - 1));
+    startTimer() { 
+        
+        this.timer0Id = this.st.subscribe('1sec', e => this.timer0callback());
+        
+    }
+    timer0callback() {
+      if(this.min!=0 || this.secs!=0){
+        this.sec=this.checkSecond(this.secs - 1);
+        this.secs=parseInt(this.sec);
+        if (this.secs == 59) {
+          this.min = this.min - 1;
+        }
+      }
+      else{
+        this.st.delTimer('1sec');
+        this.st.newTimer('1sec',1);
+        this.min=3;
+        alert('timer completed');
+      }
+		  
+	  }
+    /*startTimer(){
+      var presentTime=document.getElementById('timer').innerHTML;
+      var timeArray = time.split(/[:]+/);
+      var m=parseInt(timeArray[0]);
+      var s = this.checkSecond(parseInt(timeArray[1]) - 1);
       if (s == 59) {
         m = m - 1;
       }
       //if(m<0){alert('timer completed')}
-
-      document.getElementById('timer').innerHTML = m + ":" + s;
-      setTimeout(this.startTimer, 1000);
-    }
-
+      
+      document.getElementById('timer').innerHTML = m + ':' + s;
+      setTimeout(this.startTimer,1000);
+    }*/
   helpOperator() {
     let alert = this.alertController.create({
                   title: "Asistente telefónico",

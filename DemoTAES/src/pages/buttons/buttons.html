@@ -36,6 +36,10 @@
     <button ion-button (click)="timeout()">Timeout</button>
     <div id="testdiv"></div>
   </div>-->
-  <button ion-button value="3:00" (click)="startTimer()">Time</button>
-  <div>Time left = <span id="timer"></span></div>
+  
+  <input #timer1 type="hidden" value="3:00">
+  <input #timer1 type="hidden" value="3:00">
+  <button ion-button id="time" value="" (click)="startTimer(timer1.value)">Time</button>
+  <div>Time left = {{min}}:{{sec}}<!--<span id="timer"></span>--></div>
+  <label id="paco" value=""></label>
 </ion-content>
