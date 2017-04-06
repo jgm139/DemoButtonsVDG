@@ -2,16 +2,16 @@ import { Component, OnInit} from '@angular/core';
 import {AlertController} from 'ionic-angular';
 import { NavController } from 'ionic-angular';
 import { SimpleTimer } from 'ng2-simple-timer';
-import { MapPage } from 'map/map';
+//import { MapPage } from 'map/map';
 
 @Component({
   selector: 'page-buttons',
   templateUrl: 'buttons.html'
 })
 
-@Component({
+/*@Component({
   templateUrl: 'map.html'
-})
+})*/
 
 
 export class ButtonsPage implements OnInit {
@@ -29,9 +29,9 @@ export class ButtonsPage implements OnInit {
     //this.goToContact();
   }
 
-  goToContact() {
+  /*goToContact() {
     this.navCtrl.push(MapPage);
-  }
+  }*/
 
 	ngOnInit() {
 		this.st.newTimer('1sec',1);
@@ -102,7 +102,7 @@ export class ButtonsPage implements OnInit {
       this.st.newTimer('1sec',1);
       this.min=3;
       alert('Patrulla en camino');
-      this.goToContact();
+      //this.goToContact();
     }
 		  
   }
